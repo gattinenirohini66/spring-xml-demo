@@ -16,8 +16,7 @@ public class Main {
         System.out.println(movie1.getActor());
 
         // Task-2
-        Movie movie2=(Movie)bean.getBean("bean-1");
+        Movie movie2=(Movie)bean.getBean("bean-2");
         System.out.println(movie2.getActor());
-        System.out.println(movie1==movie2);
     }
 }
