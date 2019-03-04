@@ -3,23 +3,24 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="actor" class="com.stackroute.domain.Actor">
+    <!-- Task-1 beans for setter injection-->
+    <bean id="actor" class="com.stackroute.domain.Actor" scope="prototype">
         <property name="name" value="vijay"></property>
         <property name="gender" value="male"></property>
         <property name="age" value="30"></property>
     </bean>
-    <bean id="bean-1" class="com.stackroute.domain.Movie">
+    <bean id="bean-1" class="com.stackroute.domain.Movie" scope="singleton">
         <property name="actor" ref="actor"></property>
     </bean>
 
-    <bean id="actor1" class="com.stackroute.domain.Actor">
-        <property name="name" value="Anushka"></property>
-        <property name="gender" value="female"></property>
-        <property name="age" value="35"></property>
+    <!-- Task-2 beans for constructor injection-->
+    <bean id="actor2" class="com.stackroute.domain.Actor" scope="prototype">
+        <constructor-arg value="vijay"/>
+        <constructor-arg value="male"/>
+        <constructor-arg value="30"/>
     </bean>
-    <bean id="bean-2" class="com.stackroute.domain.Movie">
-        <property name="actor" ref="actor1">
-        </property>
+    <bean id="bean-2" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg ref="actor-2"></constructor-arg>
     </bean>
 
 </beans>

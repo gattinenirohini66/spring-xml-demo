@@ -5,6 +5,7 @@ public class Actor {
     private String gender;
     private int age;
 
+    // Task-1 using setter injection
     public String getName() {
         return name;
     }
@@ -28,7 +29,16 @@ public class Actor {
     public void setAge(int age) {
         this.age = age;
     }
+    public Actor(){
+        super();
+    }
 
+    // Task-2 using constructor injection
+    public Actor(String name, String gender, int age) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+    }
     @Override
     public String toString() {
         return "Actor{" +

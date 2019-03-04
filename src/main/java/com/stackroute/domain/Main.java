@@ -8,15 +8,16 @@ import org.springframework.core.io.ClassPathResource;
 
 public class Main {
     public static void main(String[] args) {
-
-        // Task-1 using Application context
+        //Task-1 & Task-2 using ApplicationContext
         ApplicationContext bean=new ClassPathXmlApplicationContext("bean.xml");
-        Movie movie =(Movie)bean.getBean("bean-1");
-        System.out.println(movie.getActor());
 
-        // Task-1 using XmlBeanFactory
-        XmlBeanFactory factory = new XmlBeanFactory (new ClassPathResource("bean.xml"));
-        Movie movie1=(Movie)factory.getBean("bean-2");
+        //Task-1
+        Movie movie1=(Movie)bean.getBean("bean-1");
         System.out.println(movie1.getActor());
+
+        // Task-2
+        Movie movie2=(Movie)bean.getBean("bean-1");
+        System.out.println(movie2.getActor());
+        System.out.println(movie1==movie2);
     }
 }
